@@ -1,18 +1,17 @@
-package com.system.platform.entities;
+package com.system.platform.dtos;
 
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.system.platform.entities.Account;
+import com.system.platform.entities.User;
+import com.system.platform.entities.UserStatus;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Objects;
 
-@Document
-public class User implements Serializable {
+public class UserDTO implements Serializable {
+
     @Serial
     private static final long serialVersionUID = 1L;
-    @Id
+
     private String id;
     private String name;
     private String email;
@@ -23,26 +22,26 @@ public class User implements Serializable {
     private Account account;
 
     private int coins;
+
     private int vouchers;
 
     private int totalCourses;
 
-
-    public User(){
+    public UserDTO(){
 
     }
 
-    public User(String id, String name, String email, String password, UserStatus status,Account account,int coins, int vouchers,int totalCourses) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.status = status;
-        this.coins = coins;
-        this.vouchers = vouchers;
-        this.totalCourses = totalCourses;
+    public UserDTO(User obj){
+        id = obj.getId();
+        name = obj.getName();
+        email= obj.getEmail();
+        password= obj.getPassword();
+        status = obj.getStatus();
+        account = obj.getAccount();
+        coins = obj.getCoins();
+        vouchers = obj.getCoins();
+        totalCourses = obj.getTotalCourses();
     }
-
 
     public String getId() {
         return id;
@@ -72,16 +71,8 @@ public class User implements Serializable {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public UserStatus getStatus() {
         return status;
-    }
-
-    public void setStatus(UserStatus status) {
-        this.status = status;
     }
 
     public Account getAccount() {
@@ -116,16 +107,11 @@ public class User implements Serializable {
         this.totalCourses = totalCourses;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id);
+    public void setStatus(UserStatus status) {
+        this.status = status;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

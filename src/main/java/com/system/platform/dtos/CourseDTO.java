@@ -1,29 +1,25 @@
-package com.system.platform.entities;
+package com.system.platform.dtos;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.system.platform.entities.Course;
 
 import java.io.Serial;
 import java.io.Serializable;
 
-
-@Document
-public class Course implements Serializable {
+public class CourseDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-    @Id
     private String id;
     private String name;
     private String description;
 
-    public Course(){
+    public CourseDTO(){
 
     }
 
-    public Course(String id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+    public CourseDTO(Course obj) {
+        id = obj.getId();
+        name = obj.getName();
+        description = obj.getDescription();
     }
 
     public String getId() {
@@ -49,5 +45,4 @@ public class Course implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-
 }
