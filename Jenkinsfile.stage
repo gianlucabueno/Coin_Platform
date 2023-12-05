@@ -31,5 +31,13 @@ pipeline {
         }
       }
     }
+    stage('Stop Container') {
+      steps {
+        cript {
+          // Comando para parar o container
+          sh 'docker-compose -f docker-compose.stage.yml down'
+        }
+      }
+    }
   }
 }
