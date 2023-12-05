@@ -30,15 +30,15 @@ public class Instantiation implements CommandLineRunner {
 
         User maria = new User(null, "Maria Brown", "maria@gmail.com","teste12",UserStatus.Standard, Account.Active,0,0,5);
         User paula = new User(null, "Paula Black", "paula@gmail.com","p1545",UserStatus.Standard, Account.Active,0,0,12);
-        User alex = new User(null, "Alex Green", "alex@gmail.com","79xela",UserStatus.Standard,Account.Inactive,0,0,15);
-        User bob = new User(null, "Bob Grey", "bob@gmail.com","bob121bob", UserStatus.Premium,Account.Active,3,1,20);
+        User alex = new User(null, "Alex Green", "alex@gmail.com","79xela",UserStatus.Standard,Account.Active,0,0,15);
+        User bob = new User(null, "Bob Grey", "bob@gmail.com","bob121bob", UserStatus.Premium,  Account.Active,3,1,20);
 
 
         Course programacao = new Course(null,"Programação","Programção Basica");
         Course data = new Course(null,"Ciencia de Dados","Ciencia de dados basica");
 
         courseRepository.saveAll(Arrays.asList(programacao , data));
-        userRepository.saveAll(Arrays.asList(maria, alex, bob));
+        userRepository.saveAll(Arrays.asList(maria, alex, bob, paula));
     }
 
 }

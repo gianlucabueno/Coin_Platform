@@ -64,7 +64,7 @@ public class UserService {
     }
 
     private void upStatus(User newObj, User obj) {
-        if(obj.getStatus() == UserStatus.Standard && obj.getAccount() == Account.Active && obj.getTotalCourses() > 11) {
+        if(obj.getStatus() == UserStatus.Premium) {
             newObj.setStatus(obj.getStatus());
             newObj.setCoins(3);
             newObj.setVouchers(1);
