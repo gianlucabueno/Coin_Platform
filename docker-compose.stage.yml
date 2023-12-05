@@ -9,7 +9,7 @@ services:
       - ./dados_mongo:/data/db
 
   api_stage:
-    image: rozaworks/user-account-api
+    image: gianbueno/platform
     environment:
       DB_HOST: database_stage
     ports:
