@@ -27,6 +27,7 @@ pipeline {
         script {
           def containerIds = sh(returnStdout: true, script: 'docker compose -f docker-compose.stage.yml ps -q').trim().split('\n')
           def desiredContainerId = containerIds[0] 
+          sh 'docker exec meu-container apt-get update && apt-get install -y curl'
           sh "docker exec '${desiredContainerId}' curl http://localhost:9090"
         }
       }
